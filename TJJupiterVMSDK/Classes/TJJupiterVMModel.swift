@@ -11,6 +11,12 @@ public protocol TJJupiterVMDelegate: AnyObject {
     func isParkingLocationTapped(_ parkingLocationId: String)
 }
 
+public enum JupiterVMRegion: String {
+    case KOREA = "KOREA"
+    case US_EAST = "US_EAST"
+    case CANADA = "CANADA"
+}
+
 public enum InitErrorCode: Int {
     case UNKNOWN = -1
     case NOT_AUTHORIZED = 0
