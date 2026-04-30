@@ -177,9 +177,19 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/TJJupiterVMSDK/TJJupiterVMSDK.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsAuth.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsCommon.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsJupiter.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsJupiterVM.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsResource.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/TJJupiterVMSDK/TJJupiterVMSDK.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsAuth.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsCommon.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsJupiter.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsJupiterVM.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsResource.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

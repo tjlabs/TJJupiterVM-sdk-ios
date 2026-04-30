@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		072C587347A4A064A8CCBBD7 /* Pods_TJJupiterVMSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TJJupiterVMSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3205478B1498D450CEB45DD4 /* Pods-TJJupiterVMSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TJJupiterVMSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-TJJupiterVMSDK_Example/Pods-TJJupiterVMSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		5021570279D780627F91F2E7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		5021570279D780627F91F2E7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		58F6BA2F1102B3FF406F8700 /* Pods-TJJupiterVMSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TJJupiterVMSDK_Tests.debug.xcconfig"; path = "Target Support Files/Pods-TJJupiterVMSDK_Tests/Pods-TJJupiterVMSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* TJJupiterVMSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TJJupiterVMSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,9 +42,9 @@
 		607FACE51AFB9204008FA782 /* TJJupiterVMSDK_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TJJupiterVMSDK_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		98135F006FC637BE6FC51137 /* TJJupiterVMSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = TJJupiterVMSDK.podspec; path = ../TJJupiterVMSDK.podspec; sourceTree = "<group>"; };
+		98135F006FC637BE6FC51137 /* TJJupiterVMSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TJJupiterVMSDK.podspec; path = ../TJJupiterVMSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A896CF8A890EE5A6CA945D64 /* Pods-TJJupiterVMSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TJJupiterVMSDK_Tests.release.xcconfig"; path = "Target Support Files/Pods-TJJupiterVMSDK_Tests/Pods-TJJupiterVMSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		D1E8B2B54B2A78B079A0FF1D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		D1E8B2B54B2A78B079A0FF1D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D6969F5CD3E9BC9EEF3866D7 /* Pods_TJJupiterVMSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TJJupiterVMSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B8597C2745BEC9E5766C71 /* Pods-TJJupiterVMSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TJJupiterVMSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-TJJupiterVMSDK_Example/Pods-TJJupiterVMSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,7 +156,6 @@
 				58F6BA2F1102B3FF406F8700 /* Pods-TJJupiterVMSDK_Tests.debug.xcconfig */,
 				A896CF8A890EE5A6CA945D64 /* Pods-TJJupiterVMSDK_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -213,10 +212,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = G75UAV755N;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = G75UAV755N;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -227,6 +228,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -314,10 +316,20 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TJJupiterVMSDK_Example/Pods-TJJupiterVMSDK_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/TJJupiterVMSDK/TJJupiterVMSDK.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsAuth.framework/TJLabsAuth",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsCommon.framework/TJLabsCommon",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsJupiter.framework/TJLabsJupiter",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsJupiterVM.framework/TJLabsJupiterVM",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/TJJupiterVMSDK/TJLabsResource.framework/TJLabsResource",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TJJupiterVMSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TJLabsAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TJLabsCommon.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TJLabsJupiter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TJLabsJupiterVM.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TJLabsResource.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -419,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -465,7 +477,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -478,6 +490,7 @@
 			baseConfigurationReference = 3205478B1498D450CEB45DD4 /* Pods-TJJupiterVMSDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G75UAV755N;
 				INFOPLIST_FILE = TJJupiterVMSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -493,6 +506,7 @@
 			baseConfigurationReference = E7B8597C2745BEC9E5766C71 /* Pods-TJJupiterVMSDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G75UAV755N;
 				INFOPLIST_FILE = TJJupiterVMSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -507,6 +521,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 58F6BA2F1102B3FF406F8700 /* Pods-TJJupiterVMSDK_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = G75UAV755N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -529,6 +544,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A896CF8A890EE5A6CA945D64 /* Pods-TJJupiterVMSDK_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = G75UAV755N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
