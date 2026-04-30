@@ -1,0 +1,6 @@
+framework module Pods_TJJupiterVMSDK_Example {
+  umbrella header "Pods-TJJupiterVMSDK_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "TJJupiterVMSDK",
+  "version": "0.1.0",
+  "summary": "A short description of TJJupiterVMSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/tjlabs-dev/TJJupiterVMSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "tjlabs-dev": "92098727+tjlabs-dev@users.noreply.github.com"
+  },
+  "source": {
+    "git": "https://github.com/tjlabs-dev/TJJupiterVMSDK.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "TJJupiterVMSDK/Classes/**/*"
+}

@@ -1,0 +1,16 @@
+PODS:
+  - TJJupiterVMSDK (0.1.0)
+
+DEPENDENCIES:
+  - TJJupiterVMSDK (from `../`)
+
+EXTERNAL SOURCES:
+  TJJupiterVMSDK:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  TJJupiterVMSDK: 124587eadb4e065d4464e7290c0d2da1129a1afe
+
+PODFILE CHECKSUM: 3b44eed47e8c7df193b6bde81032bd96e5231d31
+
+COCOAPODS: 1.16.2
