@@ -341,6 +341,43 @@
             "moduleName": "TJLabsAuth"
           },
           {
+            "kind": "Var",
+            "name": "SAUDI",
+            "printedName": "SAUDI",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TJLabsAuth.AuthRegion.Type) -> TJLabsAuth.AuthRegion",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AuthRegion",
+                    "printedName": "TJLabsAuth.AuthRegion",
+                    "usr": "s:10TJLabsAuth0B6RegionO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TJLabsAuth.AuthRegion.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuthRegion",
+                        "printedName": "TJLabsAuth.AuthRegion",
+                        "usr": "s:10TJLabsAuth0B6RegionO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10TJLabsAuth0B6RegionO5SAUDIyA2CmF",
+            "mangledName": "$s10TJLabsAuth0B6RegionO5SAUDIyA2CmF",
+            "moduleName": "TJLabsAuth"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(rawValue:)",
@@ -1887,6 +1924,13 @@
       "offset": 203,
       "length": 8,
       "value": "\"CANADA\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsAuth-sdk-ios\/TJLabsAuth\/AuthModel.swift",
+      "kind": "StringLiteral",
+      "offset": 229,
+      "length": 7,
+      "value": "\"SAUDI\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsAuth-sdk-ios\/TJLabsAuth\/SecretConfig.swift",

@@ -28,6 +28,19 @@ public enum VMErrorCode : Swift.Int {
     get
   }
 }
+public enum VMRegion : Swift.String {
+  case KOREA
+  case US_EAST
+  case CANADA
+  case SAUDI
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public struct EnteringInfo : Swift.Codable {
   public let id: Swift.Int
   public let number: Swift.Int
@@ -78,9 +91,10 @@ public protocol JupiterVMDelegate : AnyObject {
   @_Concurrency.MainActor @preconcurrency @objc public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
   @_Concurrency.MainActor @preconcurrency weak public var delegate: (any TJLabsJupiterVM.JupiterVMDelegate)?
   @objc deinit
-  @_Concurrency.MainActor @preconcurrency public func initialize(userId: Swift.String, region: Swift.String, sectorId: Swift.Int)
+  @_Concurrency.MainActor @preconcurrency public func initialize(userId: Swift.String, region: Swift.String = VMRegion.SAUDI.rawValue, sectorId: Swift.Int)
   @_Concurrency.MainActor @preconcurrency public func startService()
   @_Concurrency.MainActor @preconcurrency public func stopService(completion: @escaping (Swift.Bool, Swift.String) -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency public func setSimulationMode(flag: Swift.Bool, rfdFileName: Swift.String, uvdFileName: Swift.String, eventFileName: Swift.String)
   @_Concurrency.MainActor @preconcurrency public func configureFrame(to matchView: UIKit.UIView)
   @_Concurrency.MainActor @preconcurrency public func setSavedParkingLocations(parkingLocationIds: [Swift.String])
   @_Concurrency.MainActor @preconcurrency public func setVacantParkingLocations(levelId: Swift.Int, parkingLocationStates: [Swift.String : TJLabsJupiterVM.ParkingLocationState])
@@ -106,6 +120,9 @@ extension TJLabsJupiterVM.JupiterVMView : WebKit.WKNavigationDelegate {
 extension TJLabsJupiterVM.VMErrorCode : Swift.Equatable {}
 extension TJLabsJupiterVM.VMErrorCode : Swift.Hashable {}
 extension TJLabsJupiterVM.VMErrorCode : Swift.RawRepresentable {}
+extension TJLabsJupiterVM.VMRegion : Swift.Equatable {}
+extension TJLabsJupiterVM.VMRegion : Swift.Hashable {}
+extension TJLabsJupiterVM.VMRegion : Swift.RawRepresentable {}
 extension TJLabsJupiterVM.ParkingLocationState : Swift.Equatable {}
 extension TJLabsJupiterVM.ParkingLocationState : Swift.Hashable {}
 extension TJLabsJupiterVM.ParkingLocationState : Swift.RawRepresentable {}

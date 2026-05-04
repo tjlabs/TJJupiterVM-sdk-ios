@@ -38,6 +38,7 @@ public enum JupiterRegion : Swift.String {
   case KOREA
   case US_EAST
   case CANADA
+  case SAUDI
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
   #endif
