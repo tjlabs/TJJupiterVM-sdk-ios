@@ -46,7 +46,7 @@ public class TJJupiterVMView: UIView, JupiterVMDelegate {
     }
     
     
-    public func initialize(userId: String, region: String, sectorId: Int) {
+    public func initialize(userId: String, region: String = VMRegion.SAUDI.rawValue, sectorId: Int) {
         self.vmView.initialize(userId: userId, region: region, sectorId: sectorId)
         self.vmView.delegate = self
     }
@@ -57,6 +57,10 @@ public class TJJupiterVMView: UIView, JupiterVMDelegate {
     
     public func stopService(completion: @escaping (Bool, String) -> Void) {
         self.vmView.stopService(completion: completion)
+    }
+    
+    public func setSimulationMode(flag: Bool, rfdFileName: String, uvdFileName: String, eventFileName: String) {
+        self.vmView.setSimulationMode(flag: flag, rfdFileName: rfdFileName, uvdFileName: uvdFileName, eventFileName: eventFileName)
     }
     
     public func configureFrame(to matchView: UIView) {
