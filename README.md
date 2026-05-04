@@ -18,7 +18,6 @@ It provides real-time indoor positioning results, VM screen initialization, ward
 - 🅿️ Parking location save / select / status display
 - 💡 Ward entry event detection
 - 🔄 Real-time positioning result stream
-- 🛠️ Simulation mode support
 
 ---
 
@@ -278,24 +277,6 @@ public enum ParkingLocationState: Int {
     case VACANT = 0
     case OCCUPIED = 1
 }
-```
-
----
-
-## 🛠️ Simulation Mode
-
-- You can use this when you need to verify VM behavior outside the service area or in a test environment.
-- Pass the simulation data file names and then start the service.
-- Open the app through the iPhone Files app and place the `rfd`, `uvd`, and `event` files inside the `Exports` folder.
-
-
-```swift
-vmView.setSimulationMode(
-    flag: true,
-    rfdFileName: "sample_rfd.json",
-    uvdFileName: "sample_uvd.json",
-    eventFileName: "sample_event.json"
-)
 ```
 
 ---
