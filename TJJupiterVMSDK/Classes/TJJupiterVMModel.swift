@@ -15,6 +15,7 @@ public enum JupiterVMRegion: String {
     case KOREA = "KOREA"
     case US_EAST = "US_EAST"
     case CANADA = "CANADA"
+    case SAUDI = "SAUDI"
 }
 
 public enum InitErrorCode: Int {
