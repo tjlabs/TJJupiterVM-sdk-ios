@@ -14,6 +14,7 @@ public class TJJupiterVMAuth {
     init () {
         setDeviceInfo()
         let clientMeta = makeClientMeta()
+        TJLabsAuthConstants.setServerURL(cloud: "GCP", region: AuthRegion.SAUDI.rawValue, serverType: "jupiter")
         SecretConfig.set(customerKey: "JUPITER_VM", clientMeta: clientMeta)
     }
     
