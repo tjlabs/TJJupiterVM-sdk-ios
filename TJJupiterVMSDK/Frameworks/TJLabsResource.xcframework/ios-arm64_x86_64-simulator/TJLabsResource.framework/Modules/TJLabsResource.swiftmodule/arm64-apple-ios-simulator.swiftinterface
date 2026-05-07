@@ -471,35 +471,10 @@ public class TJLabsResourceManager {
 }
 @_hasMissingDesignatedInitializers public class TJLabsResourceNetworkConstants {
   public static func setServerURL(cloud: Swift.String, region: Swift.String)
+  public static func setOnpremiseURL(sectorBundleURL: Swift.String)
   public static func getUserBaseURL() -> Swift.String
   public static func getUserSectorVersion() -> Swift.String
   public static func getUserSectorURL() -> Swift.String
-  public static func getUserScaleVersion() -> Swift.String
-  public static func getUserScaleURL() -> Swift.String
-  public static func getUserPathPixelVersion() -> Swift.String
-  public static func getUserPathPixelURL() -> Swift.String
-  public static func getUserLevelUnitsVersion() -> Swift.String
-  public static func getUserLevelUnitsURL() -> Swift.String
-  public static func getUserGeoVersion() -> Swift.String
-  public static func getUserGeoURL() -> Swift.String
-  public static func getUserEntrancesVersion() -> Swift.String
-  public static func getUserEntrancesURL() -> Swift.String
-  public static func getUserLevelWardsVersion() -> Swift.String
-  public static func getUserLevelWardsURL() -> Swift.String
-  public static func getUserGraphNodesVersion() -> Swift.String
-  public static func getUserGraphNodesURL() -> Swift.String
-  public static func getUserGraphLinksVersion() -> Swift.String
-  public static func getUserGraphLinksURL() -> Swift.String
-  public static func getUserGraphLinkFeaturesVersion() -> Swift.String
-  public static func getUserGraphLinkFeaturesURL() -> Swift.String
-  public static func getUserGraphLinkGroupsVersion() -> Swift.String
-  public static func getUserGraphLinkGroupsURL() -> Swift.String
-  public static func getUserGraphPathsVersion() -> Swift.String
-  public static func getUserGraphPathsURL() -> Swift.String
-  public static func getUserMapsLandmarkVersion() -> Swift.String
-  public static func getUserMapsLandmarkURL() -> Swift.String
-  public static func getUserAffineVersion() -> Swift.String
-  public static func getUserAffineURL() -> Swift.String
   public static func getUserSectorBundleVersion() -> Swift.String
   public static func getUserSectorBundleURL() -> Swift.String
   @objc deinit
