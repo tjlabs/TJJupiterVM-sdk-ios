@@ -14,7 +14,7 @@ public class TJJupiterVMAuth {
     init () {
         setDeviceInfo()
         let clientMeta = makeClientMeta()
-        SecretConfig.set(clientMeta: clientMeta)
+        SecretConfig.set(customerKey: "JUPITER_VM", clientMeta: clientMeta)
     }
     
     private func setDeviceInfo() {
