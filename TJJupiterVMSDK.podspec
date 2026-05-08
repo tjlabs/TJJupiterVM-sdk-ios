@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://www.tjlabscorp.com'
   s.license          = { :type => 'TJLABS', :file => 'LICENSE' }
   s.author           = { 'tjlabs-dev' => 'dev@tjlabscorp.com' }
-  s.source           = { :git => 'https://github.com/tjlabs-dev/TJJupiterVMSDK.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/tjlabs-dev/TJJupiterVMSDK-sdk-ios.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '16.0'
   s.source_files = 'TJJupiterVMSDK/Classes/**/*'
