@@ -1,22 +1,28 @@
 {
   "name": "TJJupiterVMSDK",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "summary": "A short description of TJJupiterVMSDK.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/tjlabs-dev/TJJupiterVMSDK",
+  "swift_versions": "5.0",
+  "description": "TJLabs JupiterVKSDK for iOS",
+  "homepage": "https://www.tjlabscorp.com",
   "license": {
-    "type": "MIT",
+    "type": "TJLABS",
     "file": "LICENSE"
   },
   "authors": {
-    "tjlabs-dev": "92098727+tjlabs-dev@users.noreply.github.com"
+    "tjlabs-dev": "dev@tjlabscorp.com"
   },
   "source": {
     "git": "https://github.com/tjlabs-dev/TJJupiterVMSDK.git",
-    "tag": "0.1.0"
+    "tag": "1.0.0"
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "16.0"
   },
-  "source_files": "TJJupiterVMSDK/Classes/**/*"
+  "source_files": "TJJupiterVMSDK/Classes/**/*",
+  "vendored_frameworks": "TJJupiterVMSDK/Frameworks/*.xcframework",
+  "pod_target_xcconfig": {
+    "SWIFT_OPTIMIZATION_LEVEL": "-Owholemodule"
+  },
+  "swift_version": "5.0"
 }
