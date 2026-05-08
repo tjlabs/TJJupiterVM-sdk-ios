@@ -36,7 +36,6 @@ public class TJJupiterVMAuth {
         let bundleIdentifier = Bundle.main.bundleIdentifier ?? ""
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
-        
         let appVersion: String = version + "(\(build))"
         let appPackage: String = bundleIdentifier
         let deviceMode: String = self.deviceModel
