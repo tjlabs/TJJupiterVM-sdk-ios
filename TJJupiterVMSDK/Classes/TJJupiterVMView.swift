@@ -66,6 +66,10 @@ public class TJJupiterVMView: UIView, JupiterVMDelegate {
     public func configureFrame(to matchView: UIView) {
         self.vmView.configureFrame(to: matchView)
     }
+
+    public func closeFrame() {
+        self.vmView.closeFrame()
+    }
     
     public func setSavedParkingLocations(parkingLocationIds: [String]) {
         self.vmView.setSavedParkingLocations(parkingLocationIds: parkingLocationIds)
