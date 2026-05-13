@@ -135,182 +135,6 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "VMErrorCode",
-        "printedName": "VMErrorCode",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "VM_VIEW_FAIL",
-            "printedName": "VM_VIEW_FAIL",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(TJLabsJupiterVM.VMErrorCode.Type) -> TJLabsJupiterVM.VMErrorCode",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "VMErrorCode",
-                    "printedName": "TJLabsJupiterVM.VMErrorCode",
-                    "usr": "s:15TJLabsJupiterVM11VMErrorCodeO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "TJLabsJupiterVM.VMErrorCode.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VMErrorCode",
-                        "printedName": "TJLabsJupiterVM.VMErrorCode",
-                        "usr": "s:15TJLabsJupiterVM11VMErrorCodeO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:15TJLabsJupiterVM11VMErrorCodeO0C10_VIEW_FAILyA2CmF",
-            "mangledName": "$s15TJLabsJupiterVM11VMErrorCodeO0C10_VIEW_FAILyA2CmF",
-            "moduleName": "TJLabsJupiterVM"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(rawValue:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "TJLabsJupiterVM.VMErrorCode?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "VMErrorCode",
-                    "printedName": "TJLabsJupiterVM.VMErrorCode",
-                    "usr": "s:15TJLabsJupiterVM11VMErrorCodeO"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:15TJLabsJupiterVM11VMErrorCodeO8rawValueACSgSi_tcfc",
-            "mangledName": "$s15TJLabsJupiterVM11VMErrorCodeO8rawValueACSgSi_tcfc",
-            "moduleName": "TJLabsJupiterVM",
-            "implicit": true,
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Var",
-            "name": "rawValue",
-            "printedName": "rawValue",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:15TJLabsJupiterVM11VMErrorCodeO8rawValueSivp",
-            "mangledName": "$s15TJLabsJupiterVM11VMErrorCodeO8rawValueSivp",
-            "moduleName": "TJLabsJupiterVM",
-            "implicit": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:15TJLabsJupiterVM11VMErrorCodeO8rawValueSivg",
-                "mangledName": "$s15TJLabsJupiterVM11VMErrorCodeO8rawValueSivg",
-                "moduleName": "TJLabsJupiterVM",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          }
-        ],
-        "declKind": "Enum",
-        "usr": "s:15TJLabsJupiterVM11VMErrorCodeO",
-        "mangledName": "$s15TJLabsJupiterVM11VMErrorCodeO",
-        "moduleName": "TJLabsJupiterVM",
-        "declAttributes": [
-          "AccessControl"
-        ],
-        "enumRawTypeName": "Int",
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "RawRepresentable",
-            "printedName": "RawRepresentable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "RawValue",
-                "printedName": "RawValue",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:SY",
-            "mangledName": "$sSY"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
         "name": "VMRegion",
         "printedName": "VMRegion",
         "children": [
@@ -587,6 +411,182 @@
                     "name": "String",
                     "printedName": "Swift.String",
                     "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VMErrorCode",
+        "printedName": "VMErrorCode",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "VM_VIEW_FAIL",
+            "printedName": "VM_VIEW_FAIL",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TJLabsJupiterVM.VMErrorCode.Type) -> TJLabsJupiterVM.VMErrorCode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VMErrorCode",
+                    "printedName": "TJLabsJupiterVM.VMErrorCode",
+                    "usr": "s:15TJLabsJupiterVM11VMErrorCodeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TJLabsJupiterVM.VMErrorCode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VMErrorCode",
+                        "printedName": "TJLabsJupiterVM.VMErrorCode",
+                        "usr": "s:15TJLabsJupiterVM11VMErrorCodeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15TJLabsJupiterVM11VMErrorCodeO0C10_VIEW_FAILyA2CmF",
+            "mangledName": "$s15TJLabsJupiterVM11VMErrorCodeO0C10_VIEW_FAILyA2CmF",
+            "moduleName": "TJLabsJupiterVM"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "TJLabsJupiterVM.VMErrorCode?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VMErrorCode",
+                    "printedName": "TJLabsJupiterVM.VMErrorCode",
+                    "usr": "s:15TJLabsJupiterVM11VMErrorCodeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15TJLabsJupiterVM11VMErrorCodeO8rawValueACSgSi_tcfc",
+            "mangledName": "$s15TJLabsJupiterVM11VMErrorCodeO8rawValueACSgSi_tcfc",
+            "moduleName": "TJLabsJupiterVM",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15TJLabsJupiterVM11VMErrorCodeO8rawValueSivp",
+            "mangledName": "$s15TJLabsJupiterVM11VMErrorCodeO8rawValueSivp",
+            "moduleName": "TJLabsJupiterVM",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15TJLabsJupiterVM11VMErrorCodeO8rawValueSivg",
+                "mangledName": "$s15TJLabsJupiterVM11VMErrorCodeO8rawValueSivg",
+                "moduleName": "TJLabsJupiterVM",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:15TJLabsJupiterVM11VMErrorCodeO",
+        "mangledName": "$s15TJLabsJupiterVM11VMErrorCodeO",
+        "moduleName": "TJLabsJupiterVM",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
                   }
                 ]
               }
@@ -1548,6 +1548,28 @@
           },
           {
             "kind": "Function",
+            "name": "isUserArrived",
+            "printedName": "isUserArrived()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TJLabsJupiterVM0B6VMViewC13isUserArrivedyyF",
+            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC13isUserArrivedyyF",
+            "moduleName": "TJLabsJupiterVM",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "isNavigationRouteChanged",
             "printedName": "isNavigationRouteChanged(_:)",
             "children": [
@@ -1840,7 +1862,6 @@
                 "kind": "TypeNominal",
                 "name": "String",
                 "printedName": "Swift.String",
-                "hasDefaultArg": true,
                 "usr": "s:SS"
               },
               {
@@ -1939,6 +1960,28 @@
           },
           {
             "kind": "Function",
+            "name": "closeFrame",
+            "printedName": "closeFrame()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TJLabsJupiterVM0B6VMViewC10closeFrameyyF",
+            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC10closeFrameyyF",
+            "moduleName": "TJLabsJupiterVM",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setSimulationMode",
             "printedName": "setSimulationMode(flag:rfdFileName:uvdFileName:eventFileName:)",
             "children": [
@@ -1979,7 +2022,8 @@
             "declAttributes": [
               "Preconcurrency",
               "Custom",
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -2539,44 +2583,44 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 1926,
+      "offset": 1692,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMModel.swift",
-      "kind": "IntegerLiteral",
-      "offset": 79,
-      "length": 3,
-      "value": "402"
-    },
-    {
-      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMModel.swift",
       "kind": "StringLiteral",
-      "offset": 134,
+      "offset": 71,
       "length": 7,
       "value": "\"KOREA\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMModel.swift",
       "kind": "StringLiteral",
-      "offset": 161,
+      "offset": 98,
       "length": 9,
       "value": "\"US_EAST\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMModel.swift",
       "kind": "StringLiteral",
-      "offset": 189,
+      "offset": 126,
       "length": 8,
       "value": "\"CANADA\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMModel.swift",
       "kind": "StringLiteral",
-      "offset": 215,
+      "offset": 152,
       "length": 7,
       "value": "\"SAUDI\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMModel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 219,
+      "length": 3,
+      "value": "402"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMModel.swift",
@@ -2594,85 +2638,99 @@
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMModel.swift",
+      "kind": "StringLiteral",
+      "offset": 366,
+      "length": 9,
+      "value": "\"ARRIVED\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMModel.swift",
+      "kind": "StringLiteral",
+      "offset": 400,
+      "length": 14,
+      "value": "\"GUIDANCE_OUT\""
+    },
+    {
+      "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 487,
+      "offset": 595,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 509,
+      "offset": 617,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2106,
+      "offset": 2858,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "Array",
-      "offset": 2441,
+      "offset": 3193,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2513,
+      "offset": 3265,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2670,
+      "offset": 3422,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2725,
+      "offset": 3477,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2783,
+      "offset": 3535,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "StringLiteral",
-      "offset": 2823,
+      "offset": 3575,
       "length": 18,
       "value": "\"indoorNavigation\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "IntegerLiteral",
-      "offset": 3063,
+      "offset": 3815,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "StringLiteral",
-      "offset": 3098,
+      "offset": 3850,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3202,
+      "offset": 3954,
       "length": 5,
       "value": "false"
     }
