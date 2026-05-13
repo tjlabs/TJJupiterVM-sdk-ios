@@ -1,5 +1,5 @@
 # TJJupiterVMSDK
-### Version 1.0.0
+### Version 1.0.1
 
 [![Version](https://img.shields.io/cocoapods/v/TJJupiterVMSDK.svg?style=flat)](https://cocoapods.org/pods/TJJupiterVMSDK)
 [![License](https://img.shields.io/cocoapods/l/TJJupiterVMSDK.svg?style=flat)](https://cocoapods.org/pods/TJJupiterVMSDK)
@@ -92,22 +92,48 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
 
         vmView.delegate = self
-        vmView.configureFrame(to: view)
         vmView.initialize(
             userId: "USER_ID",
             sectorId: 20
         )
+        vmView.configureFrame(to: view)
     }
 }
 ```
 
-### 4. Start Service
+### 3. Remove VM View
+
+```swift
+import UIKit
+import TJJupiterVMSDK
+
+final class ViewController: UIViewController {
+    private let vmView = TJJupiterVMView(frame: .zero)
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        vmView.delegate = self
+        vmView.initialize(
+            userId: "USER_ID",
+            sectorId: 20
+        )
+        vmView.configureFrame(to: view)
+    }
+
+    func closeView() {
+        vmView.closeFrame()
+    }
+}
+```
+
+### 5. Start Service
 
 ```swift
 vmView.startService()
 ```
 
-### 5. Stop Service
+### 6. Stop Service
 
 ```swift
 vmView.stopService { success, message in
