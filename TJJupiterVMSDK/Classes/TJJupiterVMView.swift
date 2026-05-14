@@ -59,10 +59,6 @@ public class TJJupiterVMView: UIView, JupiterVMDelegate {
         self.vmView.stopService(completion: completion)
     }
     
-    public func setSimulationMode(flag: Bool, rfdFileName: String, uvdFileName: String, eventFileName: String) {
-        self.vmView.setSimulationMode(flag: flag, rfdFileName: rfdFileName, uvdFileName: uvdFileName, eventFileName: eventFileName)
-    }
-    
     public func configureFrame(to matchView: UIView) {
         self.vmView.configureFrame(to: matchView)
     }
