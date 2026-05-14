@@ -6,6 +6,7 @@ import TJLabsJupiter
 import TJLabsJupiterVM
 
 public class TJJupiterVMView: UIView, JupiterVMDelegate {
+    
     public func onInitSuccess(_ isSuccess: Bool, _ code: TJLabsJupiter.InitErrorCode?) {
         delegate?.onInitSuccess(isSuccess, code?.toWrap())
     }
