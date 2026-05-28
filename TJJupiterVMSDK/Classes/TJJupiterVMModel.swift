@@ -8,7 +8,7 @@ public protocol TJJupiterVMDelegate: AnyObject {
     func onWebViewSuccess(_ isSuccess: Bool, _ code: VMErrorCode?)
     func didWebViewRemoved()
     func isEnteringWardDeteced(info: EnteringInfo)
-    func isParkingLocationTapped(_ parkingLocationId: String)
+    func isParkingLocationTapped(levelId: Int, parkingLocationId: String)
 }
 
 public enum JupiterVMRegion: String {
@@ -22,22 +22,28 @@ public enum InitErrorCode: Int {
     case UNKNOWN = -1
     case NOT_AUTHORIZED = 0
     case INVALID_ID = 1
-    case INVALID_MODE = 2
-    case NETWORK_DISCONNECT = 3
-    case DUPLICATED_SERVICE = 4
-    case LOGIN_FAIL = 5
-    case CALC_INIT_FAIL = 6
+    case NETWORK_DISCONNECT = 2
+    case LOGIN_FAIL = 3
+    case LOAD_RESOURCE_FAIL = 4
 }
 
 public enum JupiterErrorCode: Int {
     case UNKNOWN = -1
-    case INVALID_ID = 0
-    case INVALID_MODE = 1
-    case NETWORK_DISCONNECT = 2
-    case DUPLICATED_SERVICE = 3
-    case LOGIN_FAIL = 4
-    case GENERATOR_FAIL = 5
-    case CALC_INIT_FAIL = 6
+    case NOT_INITIALIZED = 0
+    case DUPLICATED_SERVICE = 1
+    case GENERATOR_FAIL = 2
+}
+
+public enum JupiterServiceCode: Int {
+    case UNKNOWN = -1
+    case SERVICE_FAIL = 0
+    case SERVICE_SUCCESS = 1
+    case BECOME_BACKGROUND = 2
+    case BECOME_FOREGROUND = 3
+    case BLUETOOTH_UNAVAILABLE = 4
+    case BLUETOOTH_OFF = 5
+    case BLUETOOTH_SCAN_STOP = 6
+    case NETWORK_DISCONNECT = 7
 }
 
 public enum VMErrorCode: Int {
