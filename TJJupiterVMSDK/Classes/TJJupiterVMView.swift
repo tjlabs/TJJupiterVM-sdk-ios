@@ -6,7 +6,6 @@ import TJLabsJupiter
 import TJLabsJupiterVM
 
 public class TJJupiterVMView: UIView, JupiterVMDelegate {
-    
     public func onInitSuccess(_ isSuccess: Bool, _ code: TJLabsJupiter.InitErrorCode?) {
         delegate?.onInitSuccess(isSuccess, code?.toWrap())
     }
@@ -31,8 +30,8 @@ public class TJJupiterVMView: UIView, JupiterVMDelegate {
         delegate?.isEnteringWardDeteced(info: info.toWrap())
     }
     
-    public func isParkingLocationTapped(_ parkingLocationId: String) {
-        delegate?.isParkingLocationTapped(parkingLocationId)
+    public func isParkingLocationTapped(levelId: Int, parkingLocationId: String) {
+        delegate?.isParkingLocationTapped(levelId: levelId, parkingLocationId: parkingLocationId)
     }
     
     private var vmView = JupiterVMView()
@@ -45,7 +44,6 @@ public class TJJupiterVMView: UIView, JupiterVMDelegate {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     public func initialize(userId: String, region: String = VMRegion.SAUDI.rawValue, sectorId: Int) {
         self.vmView.initialize(userId: userId, region: region, sectorId: sectorId)
@@ -60,6 +58,12 @@ public class TJJupiterVMView: UIView, JupiterVMDelegate {
         self.vmView.stopService(completion: completion)
     }
     
+    public func setMockMode(mode: JupiterMockMode, completion: @escaping (Bool) -> Void) {
+        self.vmView.setMockMode(mode: mode, completion: { isSuccess in
+            completion(isSuccess)
+        })
+    }
+    
     public func configureFrame(to matchView: UIView) {
         self.vmView.configureFrame(to: matchView)
     }
@@ -68,23 +72,38 @@ public class TJJupiterVMView: UIView, JupiterVMDelegate {
         self.vmView.closeFrame()
     }
     
-    public func setSavedParkingLocations(parkingLocationIds: [String]) {
-        self.vmView.setSavedParkingLocations(parkingLocationIds: parkingLocationIds)
+    public func setSavedParkingLocations(parkingLocations: [Int: [String]]) {
+        self.vmView.setSavedParkingLocations(parkingLocations)
     }
     
-    public func setVacantParkingLocations(levelId: Int, parkingLocationStates: [String: ParkingLocationState]) {
-        var wrapped = [String: TJLabsJupiterVM.ParkingLocationState]()
-        for (key, value) in parkingLocationStates {
-            wrapped[key] = value.toJupiterVM()
-        }
-        self.vmView.setVacantParkingLocations(levelId: levelId, parkingLocationStates: wrapped)
+    public func updateSavedParkingLocations(parkingLocations: [Int: [String]]) {
+        self.vmView.updateSavedParkingLocations(parkingLocations)
     }
     
-    public func updateVacantParkingLocations(levelId: Int, parkingLocationStates: [String: ParkingLocationState]) {
-        var wrapped = [String: TJLabsJupiterVM.ParkingLocationState]()
-        for (key, value) in parkingLocationStates {
-            wrapped[key] = value.toJupiterVM()
+    public func setParkingLocationStates(parkingLocationStates: [Int: [String: ParkingLocationState]]) {
+        var statesInput = [Int : [String: TJLabsJupiterVM.ParkingLocationState]]()
+        
+        for (levelId, data) in parkingLocationStates {
+            var wrapped = [String: TJLabsJupiterVM.ParkingLocationState]()
+            for (pId, pState) in data {
+                wrapped[pId] = pState.toJupiterVM()
+            }
+            statesInput[levelId] = wrapped
         }
-        self.vmView.updateVacantParkingLocations(levelId: levelId, parkingLocationStates: wrapped)
+
+        self.vmView.setParkingLocationStates(parkingLocationStates: statesInput)
+    }
+
+    public func updateParkingLocationStates(parkingLocationStates: [Int: [String: ParkingLocationState]]) {
+        var statesInput = [Int : [String: TJLabsJupiterVM.ParkingLocationState]]()
+        
+        for (levelId, data) in parkingLocationStates {
+            var wrapped = [String: TJLabsJupiterVM.ParkingLocationState]()
+            for (pId, pState) in data {
+                wrapped[pId] = pState.toJupiterVM()
+            }
+            statesInput[levelId] = wrapped
+        }
+        self.vmView.updateParkingLocationStates(parkingLocationStates: statesInput)
     }
 }
