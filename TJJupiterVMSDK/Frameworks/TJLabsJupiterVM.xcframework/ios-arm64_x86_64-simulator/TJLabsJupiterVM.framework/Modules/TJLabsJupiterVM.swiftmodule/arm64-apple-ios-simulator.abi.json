@@ -2040,6 +2040,33 @@
           },
           {
             "kind": "Function",
+            "name": "removeFromSuperview",
+            "printedName": "removeFromSuperview()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@TJLabsJupiterVM@objc(cs)JupiterVMView(im)removeFromSuperview",
+            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC19removeFromSuperviewyyF",
+            "moduleName": "TJLabsJupiterVM",
+            "overriding": true,
+            "objc_name": "removeFromSuperview",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "configureFrame",
             "printedName": "configureFrame(to:)",
             "children": [
