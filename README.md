@@ -1,5 +1,5 @@
 # TJJupiterVMSDK
-### Version 1.0.1
+### Version 1.0.2
 
 [![Version](https://img.shields.io/cocoapods/v/TJJupiterVMSDK.svg?style=flat)](https://cocoapods.org/pods/TJJupiterVMSDK)
 [![License](https://img.shields.io/cocoapods/l/TJJupiterVMSDK.svg?style=flat)](https://cocoapods.org/pods/TJJupiterVMSDK)
@@ -160,7 +160,7 @@ extension ViewController: TJJupiterVMDelegate {
 
     func isEnteringWardDeteced(info: EnteringInfo) {}
 
-    func isParkingLocationTapped(_ parkingLocationId: String) {}
+    func isParkingLocationTapped(levelId: Int, parkingLocationId: String) {}
 }
 ```
 
@@ -172,18 +172,21 @@ extension ViewController: TJJupiterVMDelegate {
 
 ```swift
 vmView.setSavedParkingLocations(
-    parkingLocationIds: ["PARKING-A-101", "PARKING-A-102"]
+    parkingLocations: [
+        2: ["PARKING-A-101", "PARKING-A-102"]
+    ]
 )
 ```
 
 ### Vacant Parking Locations
 
 ```swift
-vmView.setVacantParkingLocations(
-    levelId: 2,
+vmView.setParkingLocationStates(
     parkingLocationStates: [
-        "PARKING-A-101": .VACANT,
-        "PARKING-A-102": .OCCUPIED
+        2: [
+            "PARKING-A-101": .VACANT,
+            "PARKING-A-102": .OCCUPIED
+        ]
     ]
 )
 ```
@@ -191,10 +194,11 @@ vmView.setVacantParkingLocations(
 ### Update Vacant Parking Locations
 
 ```swift
-vmView.updateVacantParkingLocations(
-    levelId: 2,
+vmView.updateParkingLocationStates(
     parkingLocationStates: [
-        "PARKING-A-103": .VACANT
+        2: [
+            "PARKING-A-103": .VACANT
+        ]
     ]
 )
 ```
@@ -263,11 +267,9 @@ public enum InitErrorCode: Int {
     case UNKNOWN = -1
     case NOT_AUTHORIZED = 0
     case INVALID_ID = 1
-    case INVALID_MODE = 2
-    case NETWORK_DISCONNECT = 3
-    case DUPLICATED_SERVICE = 4
-    case LOGIN_FAIL = 5
-    case CALC_INIT_FAIL = 6
+    case NETWORK_DISCONNECT = 2
+    case LOGIN_FAIL = 3
+    case LOAD_RESOURCE_FAIL = 4
 }
 ```
 
@@ -276,13 +278,9 @@ public enum InitErrorCode: Int {
 ```swift
 public enum JupiterErrorCode: Int {
     case UNKNOWN = -1
-    case INVALID_ID = 0
-    case INVALID_MODE = 1
-    case NETWORK_DISCONNECT = 2
-    case DUPLICATED_SERVICE = 3
-    case LOGIN_FAIL = 4
-    case GENERATOR_FAIL = 5
-    case CALC_INIT_FAIL = 6
+    case NOT_INITIALIZED = 0
+    case DUPLICATED_SERVICE = 1
+    case GENERATOR_FAIL = 2
 }
 ```
 
