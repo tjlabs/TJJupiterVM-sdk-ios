@@ -45,7 +45,6 @@ public class TJJupiterVMView: UIView, JupiterVMDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     public func initialize(userId: String, region: String = VMRegion.SAUDI.rawValue, sectorId: Int) {
         self.vmView.initialize(userId: userId, region: region, sectorId: sectorId)
         self.vmView.delegate = self
