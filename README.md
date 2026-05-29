@@ -168,7 +168,7 @@ extension ViewController: TJJupiterVMDelegate {
 
 ## 🚗 Parking Location
 
-### Saved Parking Locations
+### Set Saved Parking Locations
 
 ```swift
 vmView.setSavedParkingLocations(
@@ -178,7 +178,17 @@ vmView.setSavedParkingLocations(
 )
 ```
 
-### Vacant Parking Locations
+### Update Saved Parking Locations
+
+```swift
+vmView.updateSavedParkingLocations(
+    parkingLocations: [
+        2: ["PARKING-A-103"]
+    ]
+)
+```
+
+### Set Parking Locations States
 
 ```swift
 vmView.setParkingLocationStates(
@@ -191,7 +201,7 @@ vmView.setParkingLocationStates(
 )
 ```
 
-### Update Vacant Parking Locations
+### Update Parking Location States
 
 ```swift
 vmView.updateParkingLocationStates(
