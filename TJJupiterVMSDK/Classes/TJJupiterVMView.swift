@@ -7,6 +7,9 @@ import TJLabsJupiterVM
 
 public class TJJupiterVMView: UIView, JupiterVMDelegate {
     public func onInitSuccess(_ isSuccess: Bool, _ code: TJLabsJupiter.InitErrorCode?) {
+        if isSuccess {
+            self.vmView.setLSEAppName(name: "ios_vm_prod")
+        }
         delegate?.onInitSuccess(isSuccess, code?.toWrap())
     }
     

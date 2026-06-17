@@ -2065,6 +2065,34 @@
           },
           {
             "kind": "Function",
+            "name": "setLSEAppName",
+            "printedName": "setLSEAppName(name:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15TJLabsJupiterVM0B6VMViewC13setLSEAppName4nameySS_tF",
+            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC13setLSEAppName4nameySS_tF",
+            "moduleName": "TJLabsJupiterVM",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "closeFrame",
             "printedName": "closeFrame()",
             "children": [
