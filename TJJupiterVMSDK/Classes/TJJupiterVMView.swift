@@ -1,15 +1,12 @@
 
-
 import Foundation
 import UIKit
+import TJLabsCommon
 import TJLabsJupiter
 import TJLabsJupiterVM
 
 public class TJJupiterVMView: UIView, JupiterVMDelegate {
     public func onInitSuccess(_ isSuccess: Bool, _ code: TJLabsJupiter.InitErrorCode?) {
-        if isSuccess {
-            self.vmView.setLSEAppName(name: "ios_vm_prod")
-        }
         delegate?.onInitSuccess(isSuccess, code?.toWrap())
     }
     
@@ -55,6 +52,8 @@ public class TJJupiterVMView: UIView, JupiterVMDelegate {
     }
     
     public func startService() {
+        let appName = JupiterReplayer.shared.replayMode ? "ios_vm_replay" : "ios_vm_prod"
+        self.vmView.setLSEAppName(name: appName)
         self.vmView.startService()
     }
     
