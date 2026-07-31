@@ -1,6 +1,6 @@
 {
   "name": "TJJupiterVMSDK",
-  "version": "1.0.4",
+  "version": "1.0.9",
   "summary": "A short description of TJJupiterVMSDK.",
   "swift_versions": "5.0",
   "description": "TJLabs JupiterVKSDK for iOS",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/tjlabs/TJJupiterVM-sdk-ios.git",
-    "tag": "1.0.4"
+    "tag": "1.0.9"
   },
   "platforms": {
     "ios": "16.0"
