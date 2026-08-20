@@ -1,5 +1,5 @@
 PODS:
-  - TJJupiterVMSDK (1.0.12)
+  - TJJupiterVMSDK (1.0.13)
 
 DEPENDENCIES:
   - TJJupiterVMSDK (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  TJJupiterVMSDK: 05b4b33455627933f256d1ba17af537cc08eacbe
+  TJJupiterVMSDK: 421fc113d1220790e51bf6556248ec8c58f1dcb6
 
 PODFILE CHECKSUM: 7f53757afed79ca1534b9779baaed566eac898f0
 
