@@ -1608,9 +1608,9 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               },
               {
                 "kind": "TypeNominal",
@@ -1620,8 +1620,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15TJLabsJupiterVM0B10VMDelegateP23isParkingLocationTapped7levelId07parkinggJ0ySi_SStF",
-            "mangledName": "$s15TJLabsJupiterVM0B10VMDelegateP23isParkingLocationTapped7levelId07parkinggJ0ySi_SStF",
+            "usr": "s:15TJLabsJupiterVM0B10VMDelegateP23isParkingLocationTapped7levelId07parkinggJ0ySS_SStF",
+            "mangledName": "$s15TJLabsJupiterVM0B10VMDelegateP23isParkingLocationTapped7levelId07parkinggJ0ySS_SStF",
             "moduleName": "TJLabsJupiterVM",
             "genericSig": "<τ_0_0 where τ_0_0 : TJLabsJupiterVM.JupiterVMDelegate>",
             "sugared_genericSig": "<Self where Self : TJLabsJupiterVM.JupiterVMDelegate>",
@@ -2764,13 +2764,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Dictionary",
-                "printedName": "[Swift.Int : [Swift.String]]",
+                "printedName": "[Swift.String : [Swift.String]]",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   },
                   {
                     "kind": "TypeNominal",
@@ -2791,8 +2791,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15TJLabsJupiterVM0B6VMViewC24setSavedParkingLocationsyySDySiSaySSGGF",
-            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC24setSavedParkingLocationsyySDySiSaySSGGF",
+            "usr": "s:15TJLabsJupiterVM0B6VMViewC24setSavedParkingLocationsyySDySSSaySSGGF",
+            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC24setSavedParkingLocationsyySDySSSaySSGGF",
             "moduleName": "TJLabsJupiterVM",
             "declAttributes": [
               "Preconcurrency",
@@ -2814,13 +2814,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Dictionary",
-                "printedName": "[Swift.Int : [Swift.String]]",
+                "printedName": "[Swift.String : [Swift.String]]",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   },
                   {
                     "kind": "TypeNominal",
@@ -2841,8 +2841,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15TJLabsJupiterVM0B6VMViewC27updateSavedParkingLocationsyySDySiSaySSGGF",
-            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC27updateSavedParkingLocationsyySDySiSaySSGGF",
+            "usr": "s:15TJLabsJupiterVM0B6VMViewC27updateSavedParkingLocationsyySDySSSaySSGGF",
+            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC27updateSavedParkingLocationsyySDySSSaySSGGF",
             "moduleName": "TJLabsJupiterVM",
             "declAttributes": [
               "Preconcurrency",
@@ -2864,13 +2864,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Dictionary",
-                "printedName": "[Swift.Int : [Swift.String : TJLabsJupiterVM.ParkingLocationState]]",
+                "printedName": "[Swift.String : [Swift.String : TJLabsJupiterVM.ParkingLocationState]]",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   },
                   {
                     "kind": "TypeNominal",
@@ -2897,8 +2897,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15TJLabsJupiterVM0B6VMViewC24setParkingLocationStates07parkinggH0ySDySiSDySSAA0fG5StateOGG_tF",
-            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC24setParkingLocationStates07parkinggH0ySDySiSDySSAA0fG5StateOGG_tF",
+            "usr": "s:15TJLabsJupiterVM0B6VMViewC24setParkingLocationStates07parkinggH0ySDySSSDySSAA0fG5StateOGG_tF",
+            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC24setParkingLocationStates07parkinggH0ySDySSSDySSAA0fG5StateOGG_tF",
             "moduleName": "TJLabsJupiterVM",
             "declAttributes": [
               "Preconcurrency",
@@ -2920,13 +2920,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Dictionary",
-                "printedName": "[Swift.Int : [Swift.String : TJLabsJupiterVM.ParkingLocationState]]",
+                "printedName": "[Swift.String : [Swift.String : TJLabsJupiterVM.ParkingLocationState]]",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   },
                   {
                     "kind": "TypeNominal",
@@ -2953,8 +2953,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15TJLabsJupiterVM0B6VMViewC27updateParkingLocationStates07parkinggH0ySDySiSDySSAA0fG5StateOGG_tF",
-            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC27updateParkingLocationStates07parkinggH0ySDySiSDySSAA0fG5StateOGG_tF",
+            "usr": "s:15TJLabsJupiterVM0B6VMViewC27updateParkingLocationStates07parkinggH0ySDySSSDySSAA0fG5StateOGG_tF",
+            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC27updateParkingLocationStates07parkinggH0ySDySSSDySSAA0fG5StateOGG_tF",
             "moduleName": "TJLabsJupiterVM",
             "declAttributes": [
               "Preconcurrency",
@@ -3703,56 +3703,56 @@
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "IntegerLiteral",
-      "offset": 7870,
+      "offset": 8070,
       "length": 3,
       "value": "111"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "IntegerLiteral",
-      "offset": 7913,
+      "offset": 8113,
       "length": 3,
       "value": "114"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "IntegerLiteral",
-      "offset": 7953,
+      "offset": 8153,
       "length": 4,
       "value": "1137"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "FloatLiteral",
-      "offset": 7993,
+      "offset": 8193,
       "length": 18,
       "value": "24.740103556554004"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "FloatLiteral",
-      "offset": 8048,
+      "offset": 8248,
       "length": 17,
       "value": "46.57034460110625"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "FloatLiteral",
-      "offset": 8100,
+      "offset": 8300,
       "length": 7,
       "value": "241.012"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "BooleanLiteral",
-      "offset": 8567,
+      "offset": 8767,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/leo\/SwiftProjects\/Frameworks\/TJLabsJupiterVM\/TJLabsJupiterVM\/JupiterVMView.swift",
       "kind": "BooleanLiteral",
-      "offset": 8585,
+      "offset": 8785,
       "length": 5,
       "value": "false"
     }
