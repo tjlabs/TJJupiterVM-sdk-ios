@@ -716,13 +716,14 @@ public class NavigationManager : TJLabsJupiter.JupiterManagerDelegate {
   #endif
   weak public var delegate: (any TJLabsJupiter.NavigationManagerDelegate)?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(id: Swift.String, cloud: Swift.String = JupiterCloud.GCP.rawValue, region: Swift.String = JupiterRegion.KOREA.rawValue, sectorId: Swift.Int, debugOption: Swift.Bool = false, dev: Swift.Bool = false, onPremiseBaseURL: Swift.String? = nil)
+  public init(id: Swift.String, cloud: Swift.String = JupiterCloud.GCP.rawValue, region: Swift.String = JupiterRegion.KOREA.rawValue, sectorId: Swift.Int, debugOption: Swift.Bool = false, uploadOption: Swift.Bool = false, dev: Swift.Bool = false, onPremiseBaseURL: Swift.String? = nil)
   #endif
   public func initialize()
   @objc deinit
   public func startService(mode: TJLabsCommon.UserMode)
   public func stopService(completion: @escaping (Swift.Bool, Swift.String, TJLabsJupiter.JupiterServiceResult) -> Swift.Void)
   public func clearResourceCache()
+  public func uploadReplayFiles()
   #if compiler(>=5.3) && $NonescapableTypes
   public func setEventReporter(_ reporter: (any TJLabsJupiter.JupiterEventReporter)?)
   #endif

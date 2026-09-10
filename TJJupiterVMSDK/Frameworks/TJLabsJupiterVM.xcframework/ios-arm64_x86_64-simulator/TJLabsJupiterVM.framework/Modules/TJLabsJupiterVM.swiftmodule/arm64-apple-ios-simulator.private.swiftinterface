@@ -54,6 +54,7 @@ public enum VMErrorCode : Swift.Int {
   public static let WEBVIEW_LOAD_SUCCESS: Swift.Int
   public static let VM_LOCATION_DETAIL_INFO: Swift.Int
   public static let WEBVIEW_LOAD_ERROR: Swift.Int
+  public static let VM_INVALID_LEVEL: Swift.Int
   @objc deinit
 }
 public struct EnteringInfo : Swift.Codable {
