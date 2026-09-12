@@ -12,10 +12,13 @@ jobs:
     runs-on: macos-14
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Select Xcode
-        run: sudo xcode-select -switch /Applications/Xcode_16.app
+        run: |
+          XCODE=$(ls -d /Applications/Xcode_16*.app 2>/dev/null | sort -V | tail -1)
+          echo "Selected Xcode: $XCODE"
+          sudo xcode-select -switch "$XCODE"
 
       - name: Lint podspec
         run: pod lib lint TJJupiterVMSDK.podspec --allow-warnings
