@@ -1,0 +1,67 @@
+name: Deploy to CocoaPods Trunk
+
+# 버전 태그(예: 1.0.17)가 push되면 자동으로 pod trunk push 실행
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  deploy:
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_16.app
+
+      - name: Show environment
+        run: |
+          xcodebuild -version
+          pod --version
+          ruby --version
+
+      # 태그 이름과 podspec의 s.version이 일치하는지 검증 (불일치 시 배포 중단)
+      - name: Verify tag matches podspec version
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          POD_VERSION=$(grep -E "s\.version" TJJupiterVMSDK.podspec | head -1 | cut -d "'" -f2)
+          echo "Git tag       : $TAG"
+          echo "Podspec version: $POD_VERSION"
+          if [ "$TAG" != "$POD_VERSION" ]; then
+            echo "::error::Tag ($TAG) does not match podspec version ($POD_VERSION)."
+            exit 1
+          fi
+
+      - name: Lint podspec
+        run: pod lib lint TJJupiterVMSDK.podspec --allow-warnings
+
+      # push 전 인증 확인 — 토큰이 잘못됐으면 여기서 명확히 중단됨
+      - name: Verify CocoaPods Trunk authentication
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: pod trunk me
+
+      - name: Push to CocoaPods Trunk
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: pod trunk push TJJupiterVMSDK.podspec --allow-warnings --verbose
+
+      - name: Notify Slack (success)
+        if: success()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          curl -sS -X POST "$SLACK_WEBHOOK_URL" \
+            -H 'Content-Type: application/json' \
+            -d "{\"text\":\":white_check_mark: *TJJupiterVMSDK ${GITHUB_REF_NAME}* 배포 성공 :tada:\n• 작성자: ${GITHUB_ACTOR}\n<https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}|워크플로우 로그 보기>\"}"
+
+      - name: Notify Slack (failure)
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          curl -sS -X POST "$SLACK_WEBHOOK_URL" \
+            -H 'Content-Type: application/json' \
+            -d "{\"text\":\":x: *TJJupiterVMSDK ${GITHUB_REF_NAME}* 배포 실패\n• 작성자: ${GITHUB_ACTOR}\n<https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}|에러 로그 확인>\"}"
