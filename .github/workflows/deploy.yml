@@ -8,14 +8,20 @@ on:
 
 jobs:
   deploy:
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - name: Checkout
         uses: actions/checkout@v5
 
+      # vendored xcframework의 .swiftinterface가 Swift 6.2(Xcode 26)로 생성됨.
+      # 구버전 Xcode는 이 인터페이스를 소비하지 못해 컴파일 에러가 나므로 Xcode 26을 사용.
       - name: Select Xcode
         run: |
-          XCODE=$(ls -d /Applications/Xcode_16*.app 2>/dev/null | sort -V | tail -1)
+          XCODE=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          if [ -z "$XCODE" ]; then
+            echo "::error::Xcode 26 not found on runner. Available:"; ls -d /Applications/Xcode*.app
+            exit 1
+          fi
           echo "Selected Xcode: $XCODE"
           sudo xcode-select -switch "$XCODE"
 
