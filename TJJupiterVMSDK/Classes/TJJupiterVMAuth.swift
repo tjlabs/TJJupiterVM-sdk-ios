@@ -33,7 +33,7 @@ public class TJJupiterVMAuth {
             SdkMeta(name: "TJLabsCommon", version: "1.0.9"),
             SdkMeta(name: "TJLabsResource", version: "0.1.15"),
             SdkMeta(name: "TJLabsJupiter", version: "2.0.18"),
-            SdkMeta(name: "TJLabsJupiterVM", version: "2.0.17")
+            SdkMeta(name: "TJLabsJupiterVM", version: "2.0.18")
         ]
         
         let bundleIdentifier = Bundle.main.bundleIdentifier ?? ""
