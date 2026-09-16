@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TJJupiterVMSDK'
-  s.version          = '1.0.21'
+  s.version          = '1.0.22'
   s.summary          = 'A short description of TJJupiterVMSDK.'
   s.swift_version    = '5.0'
   s.description      = "TJLabs JupiterVKSDK for iOS"
