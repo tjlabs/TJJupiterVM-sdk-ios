@@ -1,5 +1,5 @@
 # TJJupiterVMSDK
-### Version 1.0.22
+### Version 1.0.23
 
 [![Version](https://img.shields.io/cocoapods/v/TJJupiterVMSDK.svg?style=flat)](https://cocoapods.org/pods/TJJupiterVMSDK)
 [![License](https://img.shields.io/cocoapods/l/TJJupiterVMSDK.svg?style=flat)](https://cocoapods.org/pods/TJJupiterVMSDK)
@@ -54,6 +54,53 @@ If you cannot find `TJJupiterVMSDK` in CocoaPods, add the default Specs source t
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
 ```
+
+---
+
+## 🔄 Migration Guide (1.0.22 → 1.0.23)
+
+If you are upgrading from 1.0.22 or earlier, check the items below. Existing single-sector code keeps working except for **Breaking Changes**.
+
+### ⚠️ Breaking Changes
+
+| Before (≤ 1.0.22) | After (1.0.23) | Action |
+|---|---|---|
+| `setMockMode(mode:completion:)` | `setMockMode(mode:sectorId:completion:)` | Pass the sector whose simulation data to use. See [Mocking Mode](#9-mocking-mode). |
+
+New enum cases were added. If you `switch` over these enums **exhaustively without `default`**, add the new cases:
+
+| Enum | Added cases |
+|---|---|
+| `JupiterErrorCode` | `INVALID_SECTOR = 3` |
+| `VMErrorCode` | `INVALID_SECTOR = 403` |
+
+### 🔁 Behavior Changes
+
+These require no code changes, but the SDK behaves differently after upgrading.
+
+- **Map zoom range follows the sector configuration.** If the sector has a zoom level configured on the server, the map opens at that default zoom and limits zooming to its min/max range. Sectors without the configuration keep the previous map defaults.
+- **`stopService` ends navigation.** The destination and route are cleared when the service stops. After restarting, request the route again from the map.
+- **Mocking mode fixes the sector.** While mocking mode is on, `configureFrame` / `startService` without a `sectorId` use the mock sector, and a different `sectorId` fails with `INVALID_SECTOR`. See [Mocking Mode](#9-mocking-mode).
+
+### ✨ New Features
+
+- **Multi-sector support.** Load several sectors once and switch between them without re-initializing. See [Initialize](#4-create-vm-view) and [Switch Sectors](#8-switch-sectors-multi-sector).
+    - `initialize(userId:sectorIds:debugOption:)`
+    - `configureFrame(to:sectorId:)` and `startService(sectorId:)` — `sectorId` is optional; omit it to use the current active sector.
+    - The single-sector `initialize(userId:sectorId:debugOption:)` still works.
+
+### 🛠 Fixes
+
+- `EnteringInfo` fields (`id`, `number`, `name`) are now `public`. Previously they could not be read outside the SDK.
+
+### 📝 Documentation Fixes
+
+The previous README did not match the SDK in the following places. The SDK API itself did not change.
+
+- `isParkingLocationTapped(levelId:parkingLocationId:)` — `levelId` is a `String`, not `Int`.
+- Parking location APIs take `String` level keys (level_matches), not `Int`.
+- `JupiterVMRegion` has only `KOREA` and `SAUDI`.
+- `VMErrorCode` includes `NOT_INITIALIZED = 401`.
 
 ---
 
@@ -112,6 +159,15 @@ final class ViewController: UIViewController {
 }
 ```
 
+To use multiple sectors, pass all sector IDs at initialization. Resources for every sector are loaded once, and the first sector becomes the active sector. If any sector fails to load, initialization fails.
+
+```swift
+vmView.initialize(
+    userId: "USER_ID",
+    sectorIds: [20, 21]
+)
+```
+
 ### 5. Remove VM View
 
 ```swift
@@ -152,6 +208,41 @@ vmView.stopService { success, message in
 }
 ```
 
+### 8. Switch Sectors (Multi-sector)
+
+- The map and positioning always use the same **active sector**.
+- `configureFrame(to:sectorId:)` and `startService(sectorId:)` accept a `sectorId`. If omitted, the current active sector is used.
+- Whichever of the two succeeds first fixes the active sector. The other must use the same sector:
+    - `configureFrame` with a different or unloaded sector fails with `onWebViewSuccess(false, .INVALID_SECTOR)`.
+    - `startService` with a different or unloaded sector fails with `onJupiterSuccess(false, .INVALID_SECTOR)`.
+- To switch sectors, **stop the service and close the frame**, then configure and start with the new sector. No re-initialization is needed.
+
+```swift
+// Sector 20
+vmView.configureFrame(to: view, sectorId: 20)
+vmView.startService(sectorId: 20)
+
+// Switch to sector 21
+vmView.stopService { _, _ in }
+vmView.closeFrame()
+vmView.configureFrame(to: view, sectorId: 21)
+vmView.startService(sectorId: 21)
+```
+
+### 9. Mocking Mode
+
+- Jupiter positions with TJLABS BLE beacons, so no indoor result is produced outside the service area. Mocking mode replays predefined results instead.
+- Specify the sector whose simulation data is used. It must be a sector loaded at initialization.
+- Set it **before** `configureFrame` / `startService`. If an active sector is already fixed and differs from `sectorId`, `success` is false.
+- While mocking mode is on, `configureFrame` / `startService` without a `sectorId` use the mock sector, and a different `sectorId` fails with `INVALID_SECTOR`.
+- `.NONE` turns mocking mode off; `sectorId` is ignored.
+
+```swift
+vmView.setMockMode(mode: .VEHICLE_INDOOR_OUTDOOR, sectorId: 20) { success in
+    print("Mock mode:", success)
+}
+```
+
 ---
 
 ## 📡 Delegate
@@ -171,7 +262,7 @@ extension ViewController: TJJupiterVMDelegate {
 
     func isEnteringWardDeteced(info: EnteringInfo) {}
 
-    func isParkingLocationTapped(levelId: Int, parkingLocationId: String) {}
+    func isParkingLocationTapped(levelId: String, parkingLocationId: String) {}
 }
 ```
 
@@ -179,12 +270,15 @@ extension ViewController: TJJupiterVMDelegate {
 
 ## 🚗 Parking Location
 
+- Keys are your level identifiers (level_matches, e.g. `"B2"`), and values are your parking location IDs (matching IDs).
+- Levels or IDs that do not match the active sector are ignored.
+
 ### Set Saved Parking Locations
 
 ```swift
 vmView.setSavedParkingLocations(
     parkingLocations: [
-        2: ["PARKING-A-101", "PARKING-A-102"]
+        "B2": ["PARKING-A-101", "PARKING-A-102"]
     ]
 )
 ```
@@ -194,7 +288,7 @@ vmView.setSavedParkingLocations(
 ```swift
 vmView.updateSavedParkingLocations(
     parkingLocations: [
-        2: ["PARKING-A-103"]
+        "B2": ["PARKING-A-103"]
     ]
 )
 ```
@@ -204,7 +298,7 @@ vmView.updateSavedParkingLocations(
 ```swift
 vmView.setParkingLocationStates(
     parkingLocationStates: [
-        2: [
+        "B2": [
             "PARKING-A-101": .VACANT,
             "PARKING-A-102": .OCCUPIED
         ]
@@ -217,7 +311,7 @@ vmView.setParkingLocationStates(
 ```swift
 vmView.updateParkingLocationStates(
     parkingLocationStates: [
-        2: [
+        "B2": [
             "PARKING-A-103": .VACANT
         ]
     ]
@@ -238,6 +332,7 @@ public struct JupiterResult: Codable {
     public var level_name: String
     public var jupiter_pos: Position
     public var navi_pos: Position?
+    public var remaining_distance: Int?   // meters to the destination (vehicle mode with a route only)
     public var llh: LLH?
     public var velocity: Float
     public var is_vehicle: Bool
@@ -275,8 +370,6 @@ public struct LLH: Codable {
 ```swift
 public enum JupiterVMRegion: String {
     case KOREA = "KOREA"
-    case US_EAST = "US_EAST"
-    case CANADA = "CANADA"
     case SAUDI = "SAUDI"
 }
 ```
@@ -302,6 +395,7 @@ public enum JupiterErrorCode: Int {
     case NOT_INITIALIZED = 0
     case DUPLICATED_SERVICE = 1
     case GENERATOR_FAIL = 2
+    case INVALID_SECTOR = 3   // startService: sector not loaded, or different from the active sector
 }
 ```
 
@@ -310,7 +404,9 @@ public enum JupiterErrorCode: Int {
 ```swift
 public enum VMErrorCode: Int {
     case UNKNOWN = -1
+    case NOT_INITIALIZED = 401
     case VM_VIEW_FAIL  = 402
+    case INVALID_SECTOR = 403   // configureFrame: sector not loaded, or different from the active sector
 }
 ```
 
