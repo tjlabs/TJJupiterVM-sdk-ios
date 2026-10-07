@@ -54,7 +54,7 @@ public class TJJupiterVMView: UIView, JupiterVMDelegate {
         self.initialize(userId: userId, sectorIds: [sectorId], debugOption: debugOption)
     }
 
-    /// 멀티 섹터 초기화. `sectorIds` 의 리소스를 한 번에 로드하고, 첫 번째 섹터가 활성 섹터가 된다.
+    /// 멀티 섹터 초기화. `sectorIds` 의 리소스를 한 번에 로드한다. 사용할 섹터는 `configureFrame` / `startService` 에서 지정한다.
     /// 하나라도 로드에 실패하면 init 실패(`onInitSuccess(false, .LOAD_RESOURCE_FAIL)`)다.
     public func initialize(userId: String, sectorIds: [Int], debugOption: Bool = true) {
         let dev = tjBranch == .DEV
@@ -63,10 +63,10 @@ public class TJJupiterVMView: UIView, JupiterVMDelegate {
         self.vmView.initialize(userId: userId, region: tjRegion.rawValue, sectorIds: sectorIds, debugOption: debugOption, uploadOption: debugOption, dev: dev)
     }
 
-    /// 서비스를 시작한다. `sectorId` 가 nil 이면 현재 활성 섹터로 시작한다.
+    /// 서비스를 시작한다. `sectorId` 는 필수이며 초기화 때 로드한 섹터 중 하나여야 한다.
     /// `configureFrame` 이 먼저 섹터를 고정했다면 그 섹터와 같아야 하며, 다르거나 로드되지 않은 섹터면
     /// `onJupiterSuccess(false, .INVALID_SECTOR)` 로 실패한다.
-    public func startService(sectorId: Int? = nil) {
+    public func startService(sectorId: Int) {
         let suffix = tjBranch == .DEV ? "dev" : "prod"
         let appName = JupiterReplayer.shared.replayMode ? "ios_vm_replay" : "ios_vm_\(suffix)"
         self.vmView.setLSEAppName(name: appName)
@@ -94,14 +94,14 @@ public class TJJupiterVMView: UIView, JupiterVMDelegate {
         self.vmView.initializeWebView()
     }
 
-    private func attachView(to matchView: UIView, sectorId: Int?) {
+    private func attachView(to matchView: UIView, sectorId: Int) {
         self.vmView.configureFrame(to: matchView, sectorId: sectorId)
     }
 
-    /// `sectorId` 섹터의 지도를 표출한다. nil 이면 현재 활성 섹터의 지도를 표출한다.
+    /// `sectorId` 섹터의 지도를 표출한다. `sectorId` 는 필수이며 초기화 때 로드한 섹터 중 하나여야 한다.
     /// `startService` 가 먼저 섹터를 고정했다면 그 섹터와 같아야 하며, 다르거나 로드되지 않은 섹터면
     /// `onWebViewSuccess(false, .INVALID_SECTOR)` 로 실패한다.
-    public func configureFrame(to matchView: UIView, sectorId: Int? = nil) {
+    public func configureFrame(to matchView: UIView, sectorId: Int) {
         self.initializeWebView()
         self.attachView(to: matchView, sectorId: sectorId)
     }

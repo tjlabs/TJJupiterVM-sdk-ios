@@ -729,9 +729,7 @@ public class NavigationManager : TJLabsJupiter.JupiterManagerDelegate {
   #endif
   public func initialize()
   @objc deinit
-  #if compiler(>=5.3) && $NonescapableTypes
-  public func startService(mode: TJLabsCommon.UserMode, sectorId: Swift.Int? = nil)
-  #endif
+  public func startService(mode: TJLabsCommon.UserMode, sectorId: Swift.Int)
   public func stopService(completion: @escaping (Swift.Bool, Swift.String, TJLabsJupiter.JupiterServiceResult) -> Swift.Void)
   public func clearResourceCache()
   public func uploadReplayFiles()

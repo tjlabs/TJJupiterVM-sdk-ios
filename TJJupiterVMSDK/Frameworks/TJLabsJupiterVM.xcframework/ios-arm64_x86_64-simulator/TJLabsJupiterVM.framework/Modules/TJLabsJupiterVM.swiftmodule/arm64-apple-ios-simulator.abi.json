@@ -2791,23 +2791,14 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.Int?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
               }
             ],
             "declKind": "Func",
-            "usr": "s:15TJLabsJupiterVM0B6VMViewC12startService8sectorIdySiSg_tF",
-            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC12startService8sectorIdySiSg_tF",
+            "usr": "s:15TJLabsJupiterVM0B6VMViewC12startService8sectorIdySi_tF",
+            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC12startService8sectorIdySi_tF",
             "moduleName": "TJLabsJupiterVM",
             "declAttributes": [
               "Preconcurrency",
@@ -3087,23 +3078,14 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.Int?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
               }
             ],
             "declKind": "Func",
-            "usr": "s:15TJLabsJupiterVM0B6VMViewC14configureFrame2to8sectorIdySo6UIViewC_SiSgtF",
-            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC14configureFrame2to8sectorIdySo6UIViewC_SiSgtF",
+            "usr": "s:15TJLabsJupiterVM0B6VMViewC14configureFrame2to8sectorIdySo6UIViewC_SitF",
+            "mangledName": "$s15TJLabsJupiterVM0B6VMViewC14configureFrame2to8sectorIdySo6UIViewC_SitF",
             "moduleName": "TJLabsJupiterVM",
             "declAttributes": [
               "Preconcurrency",

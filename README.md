@@ -1,5 +1,5 @@
 # TJJupiterVMSDK
-### Version 1.0.23
+### Version 1.0.22
 
 [![Version](https://img.shields.io/cocoapods/v/TJJupiterVMSDK.svg?style=flat)](https://cocoapods.org/pods/TJJupiterVMSDK)
 [![License](https://img.shields.io/cocoapods/l/TJJupiterVMSDK.svg?style=flat)](https://cocoapods.org/pods/TJJupiterVMSDK)
@@ -80,13 +80,13 @@ These require no code changes, but the SDK behaves differently after upgrading.
 
 - **Map zoom range follows the sector configuration.** If the sector has a zoom level configured on the server, the map opens at that default zoom and limits zooming to its min/max range. Sectors without the configuration keep the previous map defaults.
 - **`stopService` ends navigation.** The destination and route are cleared when the service stops. After restarting, request the route again from the map.
-- **Mocking mode fixes the sector.** While mocking mode is on, `configureFrame` / `startService` without a `sectorId` use the mock sector, and a different `sectorId` fails with `INVALID_SECTOR`. See [Mocking Mode](#9-mocking-mode).
+- **Mocking mode fixes the sector.** While mocking mode is on, `configureFrame` and `startService` must be called with the mock sector's `sectorId`; another sector fails with `INVALID_SECTOR`. See [Mocking Mode](#9-mocking-mode).
 
 ### ✨ New Features
 
 - **Multi-sector support.** Load several sectors once and switch between them without re-initializing. See [Initialize](#4-create-vm-view) and [Switch Sectors](#8-switch-sectors-multi-sector).
     - `initialize(userId:sectorIds:debugOption:)`
-    - `configureFrame(to:sectorId:)` and `startService(sectorId:)` — `sectorId` is optional; omit it to use the current active sector.
+    - `configureFrame(to:sectorId:)` and `startService(sectorId:)` — `sectorId` is required; the SDK never picks a sector for you.
     - The single-sector `initialize(userId:sectorId:debugOption:)` still works.
 
 ### 🛠 Fixes
@@ -154,12 +154,12 @@ final class ViewController: UIViewController {
             userId: "USER_ID",
             sectorId: 20
         )
-        vmView.configureFrame(to: view)
+        vmView.configureFrame(to: view, sectorId: 20)
     }
 }
 ```
 
-To use multiple sectors, pass all sector IDs at initialization. Resources for every sector are loaded once, and the first sector becomes the active sector. If any sector fails to load, initialization fails.
+To use multiple sectors, pass all sector IDs at initialization. Resources for every sector are loaded once; the sector to use is chosen in `configureFrame` / `startService`. If any sector fails to load, initialization fails.
 
 ```swift
 vmView.initialize(
@@ -185,7 +185,7 @@ final class ViewController: UIViewController {
             userId: "USER_ID",
             sectorId: 20
         )
-        vmView.configureFrame(to: view)
+        vmView.configureFrame(to: view, sectorId: 20)
     }
 
     func closeView() {
@@ -197,7 +197,8 @@ final class ViewController: UIViewController {
 ### 6. Start Service
 
 ```swift
-vmView.startService()
+// `sectorId` is required and must be one of the sectors loaded at initialization
+vmView.startService(sectorId: 20)
 ```
 
 ### 7. Stop Service
@@ -210,9 +211,9 @@ vmView.stopService { success, message in
 
 ### 8. Switch Sectors (Multi-sector)
 
-- The map and positioning always use the same **active sector**.
-- `configureFrame(to:sectorId:)` and `startService(sectorId:)` accept a `sectorId`. If omitted, the current active sector is used.
-- Whichever of the two succeeds first fixes the active sector. The other must use the same sector:
+- The map and positioning always use the same sector.
+- `configureFrame(to:sectorId:)` and `startService(sectorId:)` both require a `sectorId`, even when a single sector was loaded.
+- Whichever of the two succeeds first fixes the sector. The other must use the same sector:
     - `configureFrame` with a different or unloaded sector fails with `onWebViewSuccess(false, .INVALID_SECTOR)`.
     - `startService` with a different or unloaded sector fails with `onJupiterSuccess(false, .INVALID_SECTOR)`.
 - To switch sectors, **stop the service and close the frame**, then configure and start with the new sector. No re-initialization is needed.
@@ -233,8 +234,8 @@ vmView.startService(sectorId: 21)
 
 - Jupiter positions with TJLABS BLE beacons, so no indoor result is produced outside the service area. Mocking mode replays predefined results instead.
 - Specify the sector whose simulation data is used. It must be a sector loaded at initialization.
-- Set it **before** `configureFrame` / `startService`. If an active sector is already fixed and differs from `sectorId`, `success` is false.
-- While mocking mode is on, `configureFrame` / `startService` without a `sectorId` use the mock sector, and a different `sectorId` fails with `INVALID_SECTOR`.
+- Set it **before** `configureFrame` / `startService`. If a sector is already fixed by `configureFrame` / `startService` and differs from `sectorId`, `success` is false.
+- While mocking mode is on, `configureFrame` and `startService` must be called with the mock sector's `sectorId`; another sector fails with `INVALID_SECTOR`.
 - `.NONE` turns mocking mode off; `sectorId` is ignored.
 
 ```swift
@@ -271,7 +272,7 @@ extension ViewController: TJJupiterVMDelegate {
 ## 🚗 Parking Location
 
 - Keys are your level identifiers (level_matches, e.g. `"B2"`), and values are your parking location IDs (matching IDs).
-- Levels or IDs that do not match the active sector are ignored.
+- Levels or IDs that do not match the sector in use are ignored.
 
 ### Set Saved Parking Locations
 
@@ -395,7 +396,7 @@ public enum JupiterErrorCode: Int {
     case NOT_INITIALIZED = 0
     case DUPLICATED_SERVICE = 1
     case GENERATOR_FAIL = 2
-    case INVALID_SECTOR = 3   // startService: sector not loaded, or different from the active sector
+    case INVALID_SECTOR = 3   // startService: sector not loaded, or different from the sector fixed by configureFrame
 }
 ```
 
@@ -406,7 +407,7 @@ public enum VMErrorCode: Int {
     case UNKNOWN = -1
     case NOT_INITIALIZED = 401
     case VM_VIEW_FAIL  = 402
-    case INVALID_SECTOR = 403   // configureFrame: sector not loaded, or different from the active sector
+    case INVALID_SECTOR = 403   // configureFrame: sector not loaded, or different from the sector fixed by startService
 }
 ```
 
